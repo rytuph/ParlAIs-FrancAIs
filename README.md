@@ -12,6 +12,7 @@ psycopg2 library (pip install psycopg2-binary)
 
 Setup
 Database: Create a PostgreSQL database. Use the provided SQL script to set up the students table and insert initial data.
+
 Configuration: Edit app.py to match your database connection details (dbname, user, password, host, port).
 
 Running the Application
