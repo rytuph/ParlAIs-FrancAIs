@@ -21,3 +21,8 @@ Execute the application from the command line:
 python app.py
 
 Follow the on-screen prompts to manage student records:
+
+
+LINK TO VIDEO:
+
+https://youtu.be/WdF2u-uiKhw
