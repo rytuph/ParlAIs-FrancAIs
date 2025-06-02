@@ -1,0 +1,17 @@
+{
+  "base_model_name_or_path": "Qwen/Qwen1.5-7B-Chat",
+  "bias": "none",
+  "fan_in_fan_out": false,
+  "inference_mode": true,
+  "lora_alpha": 16,
+  "lora_dropout": 0.1,
+  "modules_to_save": null,
+  "peft_type": "LORA",
+  "r": 64,
+  "revision": "2d7036a8823552432ec48464a85a4925d429c2d1",
+  "target_modules": [
+    "q_proj",
+    "v_proj"
+  ],
+  "task_type": "CAUSAL_LM"
+}
