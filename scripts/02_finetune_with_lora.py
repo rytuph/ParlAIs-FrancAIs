@@ -19,7 +19,7 @@ def main():
     print("Starting the fine-tuning process...")
 
     # --- 1. Configuration ---
-    model_name = "Qwen/Qwen1.5-7B-Chat" # Base model from Hugging Face
+    model_name = "Qwen/Qwen3-8B-Chat" # Base model from Hugging Face
     dataset_path = "data/final_dataset.json" # Assumes the full dataset exists
     output_dir = "./results"
     lora_adapter_path = "models/qwen3-8b-lora"
