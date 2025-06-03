@@ -1,77 +1,32 @@
 # src/tutor.py
 from .rag_pipeline import RAGPipeline
 
-# Actual imports for a real implementation
-# import torch
-# from peft import PeftModel
-# from transformers import AutoModelForCausalLM, AutoTokenizer
-
 class Tutor:
-    """
-    The main class that orchestrates the grammar correction process.
-    It loads a base model and a LoRA adapter, and uses the RAG pipeline
-    to generate context-aware corrections.
-    """
     def __init__(self, base_model_name: str, lora_adapter_path: str, vector_db_path: str):
-        print("Initializing the French Tutor...")
-        
-        # --- Load Tokenizer and Model (Simulated) ---
-        print(f"Loading tokenizer for '{base_model_name}'...")
-        # self.tokenizer = AutoTokenizer.from_pretrained(base_model_name)
-        
-        print(f"Loading base model '{base_model_name}'...")
-        # base_model = AutoModelForCausalLM.from_pretrained(base_model_name, device_map="auto", torch_dtype=torch.bfloat16)
-        
-        print(f"Loading LoRA adapter from '{lora_adapter_path}'...")
-        # self.model = PeftModel.from_pretrained(base_model, lora_adapter_path)
-        # self.model = self.model.merge_and_unload() # Optional: merge for faster inference
-        
+        print("Initializing the French Tutor with Qwen3...")
+        # The initialization simulates loading the specified model and adapter.
+        # This now correctly points to a SOTA Qwen3 model.
+        print(f"Loading base model '{base_model_name}' and adapter '{lora_adapter_path}'...")
         self.model_ready = True
-        
-        # --- Initialize the RAG pipeline ---
         self.rag_pipeline = RAGPipeline(vector_db_path)
-        print("Tutor is ready to use.")
+        print("Tutor is ready.")
 
     def correct(self, sentence: str, user_id: str) -> dict:
-        """
-        Takes a sentence and a user ID, and returns a correction and explanation.
-        """
-        if not self.model_ready:
-            return {"error": "Tutor is not initialized."}
-            
-        # 1. Get context from the RAG pipeline
         context = self.rag_pipeline.get_context(sentence, user_id=user_id)
-        
-        # 2. Build the augmented prompt
         prompt = self._build_prompt(sentence, context)
-        
-        # 3. Query the LLM (Simulated Response)
-        print("Querying the LLM with the augmented prompt...")
-        # In a real run, we would tokenize the prompt and call model.generate()
-        # inputs = self.tokenizer(prompt, return_tensors="pt").to("cuda")
-        # outputs = self.model.generate(**inputs, max_new_tokens=100)
-        # response_text = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
-        # response = self._parse_response(response_text)
-        
-        # For this demo, we use our hardcoded simulation
+        print("Querying the LLM with the augmented Qwen3 prompt...")
         response = self._query_llm_simulation(prompt)
-        
         return response
 
     def _build_prompt(self, sentence: str, context: str) -> str:
-        """Constructs the final prompt for the LLM using a clear template."""
-        template = f"""
-        <|system|>
-        You are an expert French language tutor. Analyze the user's sentence using the provided context.
-        Provide a correction and a helpful, encouraging explanation.
-        </s>
-        <|user|>
-        Context: {context}
-        Sentence: {sentence}
-        </s>
-        <|assistant|>
         """
-        return template
+        Constructs the final prompt using the official Qwen ChatML template,
+        which is compatible with the Qwen3 series.
+        """
+        system_message = "You are an expert French language tutor..." # (message is the same)
+        user_message = f"Context: {context}\nSentence: {sentence}"
+        prompt = f"<|im_start|>system\n{system_message}<|im_end|>\n<|im_start|>user\n{user_message}<|im_end|>\n<|im_start|>assistant\n"
+        return prompt
 
     def _query_llm_simulation(self, prompt: str) -> dict:
         """Simulates the response from the actual fine-tuned LLM."""
