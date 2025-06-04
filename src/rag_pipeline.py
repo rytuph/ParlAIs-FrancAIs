@@ -13,7 +13,7 @@ class RAGPipeline:
     database of user profiles. It retrieves relevant context based on a user's
     input sentence and their learning history to augment the LLM's prompt.
     """
-    def __init__(self, vector_db_path: str, user_profile_db_path: str, model_name='all-MiniLM-L6-v2'):
+    def __init__(self, vector_db_path: str, user_profile_db_path: str, knowledge_base_path: str, model_name='all-MiniLM-L6-v2'):
         """
         Initializes the RAG pipeline by loading all necessary components.
         
@@ -25,6 +25,10 @@ class RAGPipeline:
         print("Initializing RAG pipeline...")
         self.vector_db_path = vector_db_path
         self.user_profile_db_path = user_profile_db_path
+        
+        # Load the full knowledge base to get topic information
+        with open(knowledge_base_path, 'r', encoding='utf-8') as f:
+            self.knowledge_base = json.load(f)
         
         try:
             # Load the sentence transformer model for encoding queries
@@ -86,13 +90,16 @@ class RAGPipeline:
         # Search the FAISS index for the most similar vector
         distances, indices = self.index.search(query_embedding, k)
         
-        # Retrieve the document content using the index
         if len(indices) > 0 and len(indices[0]) > 0:
             retrieved_doc_index = indices[0][0]
-            retrieved_doc = self.corpus[retrieved_doc_index]
-            return f"Retrieved Grammar Rule: {retrieved_doc}"
+            # Retrieve the full document, not just the content
+            retrieved_doc = self.knowledge_base[retrieved_doc_index]
+            return {
+                "content": f"Retrieved Grammar Rule: {retrieved_doc['content']}",
+                "topic": retrieved_doc.get('topic', 'General')
+            }
         
-        return "Retrieved Grammar Rule: No specific rule was found to be highly relevant. Relying on the model's general knowledge."
+        return {"content": "Retrieved Grammar Rule: None found.", "topic": "General"}
 
     def _query_user_profile(self, user_id: str) -> str:
         """
