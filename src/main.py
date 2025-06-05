@@ -1,31 +1,37 @@
 # main.py
+import yaml
 from src.tutor import Tutor
 
 def main():
     """
     Main entry point for demonstrating the Tutor's functionality.
+    Loads configuration from config.yaml to initialize the system.
     """
     print("--- ParlAIs FrancAIs Demonstration ---")
     
-    # Initialize the tutor, loading the model and RAG pipeline
-    french_tutor = Tutor(model_path="models/qwen3-8b-lora", vector_db_path="data/vector_store")
+    # Load configuration from the YAML file
+    try:
+        with open('config.yaml', 'r') as f:
+            config = yaml.safe_load(f)
+        print("Configuration loaded successfully.")
+    except FileNotFoundError:
+        print("Error: config.yaml not found. Please ensure the file exists.")
+        return
+
+    # Initialize the tutor using settings from the config file
+    tutor = Tutor(
+        base_model_name=config['model']['base_model_name'],
+        lora_adapter_path=config['model']['lora_adapter_path'],
+        vector_db_path=config['paths']['vector_db'],
+        user_profile_db_path=config['paths']['user_profiles']
+    )
     
-    # User session ID allows the RAG pipeline to track learning history
+    # --- The rest of the demonstration remains the same ---
     user_id = "user_123"
-    
-    # --- Example 1 ---
-    print("\n--- Correcting sentence 1 ---")
-    sentence1 = "Je vais à le parc."
-    response1 = french_tutor.correct(sentence1, user_id=user_id)
-    print("User Sentence:", sentence1)
-    print("Tutor Response:", response1)
-    
-    # --- Example 2 ---
-    print("\n--- Correcting sentence 2 ---")
-    sentence2 = "C'est le livre que j'ai besoin."
-    response2 = french_tutor.correct(sentence2, user_id=user_id)
-    print("User Sentence:", sentence2)
-    print("Tutor Response:", response2)
+    sentence = "Je vais à le parc."
+    print(f"\n--- Correcting sentence for {user_id}: '{sentence}' ---")
+    response = tutor.correct(sentence, user_id=user_id)
+    print("Tutor Response:", response)
 
 if __name__ == "__main__":
     main()
