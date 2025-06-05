@@ -1,0 +1,11 @@
+# Configuration for the ParlAIs FrancAIs Project
+
+model:
+  base_model_name: "Qwen/Qwen3-8B-Instruct"
+  lora_adapter_path: "models/qwen3-8b-lora"
+  embedding_model_name: "all-MiniLM-L6-v2"
+
+paths:
+  vector_db: "data/vector_store"
+  user_profiles: "data/user_profiles.json"
+  knowledge_base: "data/grammar_knowledge_base.json"
