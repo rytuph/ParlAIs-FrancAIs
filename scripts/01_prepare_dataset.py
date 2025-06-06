@@ -1,6 +1,8 @@
 # scripts/01_prepare_dataset.py
 import pandas as pd
 import json
+import yaml
+
 
 def create_instruction(row):
     """
@@ -32,13 +34,16 @@ def create_instruction(row):
 
 def main():
     """
-    Processes the raw data from CSV, transforms it into the instruction-tuning
-    format required by the SFTTrainer, and saves the result as a JSON file.
+    Processes the raw data, transforms it into the instruction-tuning
+    format, and saves the result as a JSON file based on paths in config.yaml.
     """
     print("Starting dataset preparation...")
     
-    raw_data_path = 'data/raw_data.csv'
-    output_path = 'data/sample_dataset.json'
+    with open('config.yaml', 'r') as f:
+        config = yaml.safe_load(f)
+
+    raw_data_path = config['paths']['raw_data']
+    output_path = config['paths']['finetune_dataset_sample']
 
     try:
         raw_df = pd.read_csv(raw_data_path)
