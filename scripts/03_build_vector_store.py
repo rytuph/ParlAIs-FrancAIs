@@ -4,6 +4,7 @@ import os
 import numpy as np
 import faiss
 from sentence_transformers import SentenceTransformer
+import yaml
 
 def main():
     """
@@ -17,8 +18,13 @@ def main():
     """
     print("Starting the vector store build process...")
 
-    knowledge_base_path = 'data/grammar_knowledge_base.json'
-    output_dir = 'data/vector_store'
+    with open('config.yaml', 'r') as f:
+    config = yaml.safe_load(f)
+
+    knowledge_base_path = config['paths']['knowledge_base']
+    output_dir = config['paths']['vector_db']
+    model_name = config['model']['embedding_model_name']
+
     index_path = os.path.join(output_dir, 'faiss_index.bin')
     corpus_path = os.path.join(output_dir, 'corpus.json')
 
