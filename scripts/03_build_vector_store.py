@@ -19,7 +19,7 @@ def main():
     print("Starting the vector store build process...")
 
     with open('config.yaml', 'r') as f:
-    config = yaml.safe_load(f)
+        config = yaml.safe_load(f)
 
     knowledge_base_path = config['paths']['knowledge_base']
     output_dir = config['paths']['vector_db']
