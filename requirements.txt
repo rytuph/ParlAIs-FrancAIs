@@ -1,0 +1,13 @@
+# Core ML/DL Frameworks
+torch==2.1.0
+transformers==4.36.2
+peft==0.7.1
+accelerate==0.25.0
+bitsandbytes==0.41.3
+
+# Vector Store
+faiss-cpu==1.7.4
+
+# Data Handling
+pandas==2.1.4
+numpy==1.26.2
