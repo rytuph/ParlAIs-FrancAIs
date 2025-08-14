@@ -1,0 +1,4 @@
+"incorrect_sentence","correct_sentence","explanation_notes"
+"J'ai mangé un pomme.","J'ai mangé une pomme.","'pomme' is feminine, use 'une' not 'un'"
+"C'est le livre que j'ai besoin.","C'est le livre dont j'ai besoin.","'avoir besoin de', relative clause requires 'dont'"
+"Ils sont les amis qui je joue avec.","Ce sont les amis avec qui je joue.","use 'Ce sont' for identification, preposition 'avec' moves before 'qui'"

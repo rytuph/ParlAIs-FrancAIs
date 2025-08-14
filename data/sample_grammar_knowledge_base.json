@@ -1,0 +1,22 @@
+[
+    {
+        "rule_id": "contraction_a_le",
+        "topic": "Contractions",
+        "content": "In French, the preposition 'à' must contract with the masculine definite article 'le' to form 'au'. This is a mandatory contraction and applies before masculine, singular nouns that do not start with a vowel or a silent 'h'. For example, 'à le parc' becomes 'au parc'."
+    },
+    {
+        "rule_id": "pronoun_dont",
+        "topic": "Relative Pronouns",
+        "content": "The relative pronoun 'dont' is used to replace a complement introduced by the preposition 'de'. This includes verbs that require 'de', such as 'parler de', 'rêver de', or 'avoir besoin de'. For example, 'C'est le livre que j'ai besoin de' is incorrect; it should be 'C'est le livre dont j'ai besoin'."
+    },
+    {
+        "rule_id": "ce_sont_vs_ils_sont",
+        "topic": "Pronouns",
+        "content": "When identifying people or things with the verb 'être', the pronoun 'ce' (c') is generally used. For plural nouns, this becomes 'ce sont'. 'Ils sont' or 'Elles sont' are used to describe a quality of a previously mentioned subject, not to identify it. For example, to identify friends, one says 'Ce sont mes amis', not 'Ils sont mes amis'."
+    },
+    {
+        "rule_id": "gender_agreement_articles",
+        "topic": "Articles and Gender",
+        "content": "All nouns in French have a gender, either masculine or feminine. Articles must agree with the gender of the noun. The indefinite article for a masculine noun is 'un', and for a feminine noun, it is 'une'. For example, 'livre' (book) is masculine, so it is 'un livre'. 'Pomme' (apple) is feminine, so it is 'une pomme'."
+    }
+]
