@@ -1,0 +1,16 @@
+{
+  "user_123": {
+    "error_counts": {
+      "Contractions": 8,
+      "Relative Pronouns": 3,
+      "Articles and Gender": 1
+    },
+    "last_seen": "2025-08-30T10:00:00Z"
+  },
+  "user_456": {
+    "error_counts": {
+      "Articles and Gender": 5
+    },
+    "last_seen": "2025-08-29T12:00:00Z"
+  }
+}
