@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+```---
+
+You have now successfully scaffolded the entire project! You have a professional `README.md`, a logical file structure, well-commented placeholder code, and sample data. This is a very strong foundation.
+
+Take a moment to review the files and their contents. The next step would be to push all of this to a new GitHub repository. Does everything here look good to you?
