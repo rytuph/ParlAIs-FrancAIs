@@ -1,0 +1,26 @@
+[
+  {
+    "instruction": "Analyze the user's French sentence. If it contains a grammatical error, provide the corrected sentence and a detailed, step-by-step explanation of the rule that was broken. The explanation should be encouraging and educational.",
+    "input": "J'ai mangé un pomme.",
+    "output": {
+      "correction": "J'ai mangé une pomme.",
+      "explanation": "Excellent try! The error here is with the article. The noun 'pomme' (apple) is a feminine noun in French. Therefore, you need to use the feminine indefinite article 'une' instead of the masculine 'un'. Keep up the great work!"
+    }
+  },
+  {
+    "instruction": "Analyze the user's French sentence. If it contains a grammatical error, provide the corrected sentence and a detailed, step-by-step explanation of the rule that was broken. The explanation should be encouraging and educational.",
+    "input": "C'est le livre que j'ai besoin.",
+    "output": {
+      "correction": "C'est le livre dont j'ai besoin.",
+      "explanation": "Très bien ! The verb 'avoir besoin' is always followed by the preposition 'de'. When this is the object of a relative clause, you must use the pronoun 'dont'. This is a common point of confusion!"
+    }
+  },
+  {
+    "instruction": "Analyze the user's French sentence. If it contains a grammatical error, provide the corrected sentence and a detailed, step-by-step explanation of the rule that was broken. The explanation should be encouraging and educational.",
+    "input": "Ils sont les amis qui je joue avec.",
+    "output": {
+      "correction": "Ce sont les amis avec qui je joue.",
+      "explanation": "Good sentence structure! In French, it's more natural to use 'Ce sont' instead of 'Ils sont' when identifying people. Also, the preposition 'avec' should come before the relative pronoun 'qui'. You're doing great!"
+    }
+  }
+]
