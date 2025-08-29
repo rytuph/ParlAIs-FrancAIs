@@ -21,6 +21,7 @@ Learning the nuances of French grammar is a significant challenge for students. 
 
 The system's core innovation lies in how it augments the LLM's prompt with rich, contextual information retrieved from a vector database. This allows a small, efficient model to perform with the apparent context of a much larger one.
 
+```
 User Input: "Je vais à le parc."
       |
       V
@@ -130,4 +131,3 @@ To set up the environment for this project:
 *   **Web Interface:** Develop a simple Streamlit or Gradio interface to make the tutor more accessible for interactive use.
 *   **Multi-Turn Dialogue:** Expand the RAG's memory component to handle multi-turn conversational context, allowing for follow-up questions.
 *   **Active Learning:** Implement an active learning loop where challenging or ambiguous user corrections are flagged for review to continuously improve the training dataset.
-```
