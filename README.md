@@ -1,4 +1,3 @@
-```markdown
 # ParlAIs FrancAIs: A Personalized French Language Tutor LLM
 
 ![Python Version](https://img.shields.io/badge/Python-3.9%2B-blue.svg)
@@ -22,7 +21,6 @@ Learning the nuances of French grammar is a significant challenge for students. 
 
 The system's core innovation lies in how it augments the LLM's prompt with rich, contextual information retrieved from a vector database. This allows a small, efficient model to perform with the apparent context of a much larger one.
 
-```
 User Input: "Je vais à le parc."
       |
       V
