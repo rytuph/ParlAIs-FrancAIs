@@ -119,6 +119,31 @@ To set up the environment for this project:
     pip install -r requirements.txt
     ```
 
+## 🚀 Project Workflow
+
+This project is structured as a series of scripts that build upon each other. To run the full pipeline from data preparation to application demonstration, follow these steps in order:
+
+1.  **Prepare the Dataset:** Run the data preparation script to convert the raw CSV data into the format required for fine-tuning.
+    ```bash
+    python scripts/01_prepare_dataset.py
+    ```
+
+2.  **Build the Vector Store:** Run the embedding script to create the FAISS index from the knowledge base. This is required for the RAG pipeline to function.
+    ```bash
+    python scripts/03_build_vector_store.py
+    ```
+
+3.  **(Simulated) Fine-Tuning:** The fine-tuning script is set up for demonstration and outlines the process. In a real-world scenario, this would be run on a capable GPU to generate the LoRA adapter.
+    ```bash
+    python scripts/02_finetune_with_lora.py
+    ```
+
+4.  **Run the Demonstration:** Execute the main application file to see the complete pipeline in action, from user input to a corrected sentence with a RAG-augmented explanation.
+    ```bash
+    python main.py
+    ```
+
+
 ## 💻 Technologies Used
 
 *   **ML/DL:** PyTorch, Hugging Face (Transformers, PEFT, Accelerate)
