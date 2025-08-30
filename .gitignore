@@ -34,3 +34,7 @@ ENV/
 ```---
 
 models/qwen3-8b-lora/adapter_model.safetensors
+
+# Generated RAG files
+data/vector_store/faiss_index.bin
+data/vector_store/corpus.json
